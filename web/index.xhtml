@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Data Survei Kesehatan</title>
+        <link rel="stylesheet" href="css/style.css" media="screen" type="text/css"> </link>
+        <link href="assets/css/font-awesome.css" rel="stylesheet"> </link>
+        <link href="assets/css/custom.css" rel="stylesheet"> </link>
+        <link rel="stylesheet" href="assets/css/bootstrap.css"> </link>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <div class="col-md-1" align="center">
+                    <ul class="nav" id="main-menu">
+                        <br></br>
+                        <h:commandButton value="Tambah Data" 
+                                        action="#{barangController.prepareCreate()}"
+                                        class='btn btn-primary'/>
+                    </ul>
+                </div>
+                <div class="container col-md-7">
+                <center>
+                <h1><h:outputText value="Data Survei Kesehatan"/></h1>
+                <br></br>    
+                <h:dataTable value="#{barangController.daftarBarang}" var="item" border="1" class="tabletable-striped table-bordered">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="No. Identitas"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nama"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nama}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Jenis Kelamin"/>
+                        </f:facet>
+                        <h:outputText value="#{item.kategori}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Alamat"/>
+                        </f:facet>
+                        <h:outputText value="#{item.harga}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Kondisi Kesehatan"/>
+                        </f:facet>
+                        <h:outputText value="#{item.stok}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Aksi"/>
+                        </f:facet>
+                        <h:commandButton value="Edit"
+                                         action="#{barangController.prepareEdit(item.id)}"
+                                         class='btn btn-success'/>
+                        <h:commandButton value="Hapus"
+                                         action="#{barangController.delete(item.id)}"
+                                         onclick="return confirm('Anda Yakin?');"
+                                         class='btn btn-danger'/>
+                    </h:column>
+                </h:dataTable>  
+                    
+                </center>
+                </div>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

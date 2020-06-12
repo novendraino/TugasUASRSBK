@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Edit Data</title>
+        <link rel="stylesheet" href="css/style.css" media="screen" type="text/css"> </link>
+        <link href="assets/css/font-awesome.css" rel="stylesheet"> </link>
+        <link href="assets/css/custom.css" rel="stylesheet"> </link>
+        <link rel="stylesheet" href="assets/css/bootstrap.css"> </link>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <div class="container col-md-3">
+                <h1><h:outputText value="Edit Data"/></h1>
+                <br></br>
+                <f:validateBean>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="No. Identitas:" for="id" />
+                    <h:inputText id="id" value="#{barangController.barang.id}" title="Id" />
+                    <h:outputLabel value="Nama:" for="nama" />
+                    <h:inputText id="nama" value="#{barangController.barang.nama}" title="Nama" />
+                    <h:outputLabel value="Jenis Kelamin:" for="kategori" />
+                    <h:inputText id="kategori" value="#{barangController.barang.kategori}" title="Jenis Kelamin" />
+                    <h:outputLabel value="Alamat:" for="harga" />
+                    <h:inputText id="harga" value="#{barangController.barang.harga}" title="Alamat" />
+                    <h:outputLabel value="Kondisi:" for="stok" />
+                    <h:inputText id="stok" value="#{barangController.barang.stok}" title="Kondisi" />
+                    
+                    <h:commandButton value="Simpan"
+                                     action="#{barangController.edit()}"
+                                     class='btn btn-success'/>
+                </h:panelGrid>
+                </f:validateBean>
+                </div>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+
